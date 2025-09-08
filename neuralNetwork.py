@@ -76,7 +76,8 @@ class NeuralNetwork:
             z_vectors.append(z_vector)
             activation = sigmoid(z_vector)
             activations.append(activation)
-        delta = (activations[-1] - y) * sigmoidPrime(z_vectors[-1])
+        # delta = (activations[-1] - y) * sigmoidPrime(z_vectors[-1])
+        delta = (activations[-1] - y) # cross entropy cost function
         nabla_b[-1] = delta
         nabla_w[-1] = np.dot(delta, activations[-2].transpose())
         for layer in range(2, self.numLayers):
